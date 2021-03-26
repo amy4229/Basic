@@ -12,7 +12,7 @@ public class Scale {
 
 	/**
 	 * 주어진 추들로 특정 물체의 무게를 측정가능한지 판단
-	 * 
+	 * 0 : 불가 1: 가능
 	 * @param w 추들의 무게베열
 	 * @param m 츠겆할 무게
 	 * @return 측정가능여부
