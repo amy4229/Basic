@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.School;
+package amy.practice.Algorithm.School.DP;
 /**
  * 피보나치 수열 (분할정복방법 VS 동적프로그래밍 방법)
  * @author amy

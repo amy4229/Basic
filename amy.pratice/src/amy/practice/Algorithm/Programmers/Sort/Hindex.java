@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.Programmers;
+package amy.practice.Algorithm.Programmers.Sort;
 
 import java.util.Arrays;
 

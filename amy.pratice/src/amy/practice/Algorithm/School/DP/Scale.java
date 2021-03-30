@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.School;
+package amy.practice.Algorithm.School.DP;
 
 import java.util.Arrays;
 
