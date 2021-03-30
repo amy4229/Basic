@@ -7,22 +7,22 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * ¹éÁØ1920¹ø - ¼ö Ã£±â
- * N°³ÀÇ Á¤¼ö A[1], A[2], ¡¦, A[N]ÀÌ ÁÖ¾îÁ® ÀÖÀ» ¶§, ÀÌ ¾È¿¡ X¶ó´Â Á¤¼ö°¡ Á¸ÀçÇÏ´ÂÁö ¾Ë¾Æ³»´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+ * ë°±ì¤€1920ë²ˆ - ìˆ˜ ì°¾ê¸° Nê°œì˜ ì •ìˆ˜ A[1], A[2], â€¦, A[N]ì´ ì£¼ì–´ì ¸ ìˆì„ ë•Œ, ì´ ì•ˆì— Xë¼ëŠ” ì •ìˆ˜ê°€ ì¡´ì¬í•˜ëŠ”ì§€ ì•Œì•„ë‚´ëŠ”
+ * í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
  * 
- * @param Ã¹Â° ÁÙ¿¡ ÀÚ¿¬¼ö N(1 ¡Â N ¡Â 100,000)ÀÌ ÁÖ¾îÁø´Ù. ´ÙÀ½ ÁÙ¿¡´Â N°³ÀÇ Á¤¼ö A[1], A[2], ¡¦, A[N]ÀÌ
- *           ÁÖ¾îÁø´Ù. ´ÙÀ½ ÁÙ¿¡´Â M(1 ¡Â M ¡Â 100,000)ÀÌ ÁÖ¾îÁø´Ù. ´ÙÀ½ ÁÙ¿¡´Â M°³ÀÇ ¼öµéÀÌ ÁÖ¾îÁö´Âµ¥, ÀÌ ¼öµéÀÌ
- *           A¾È¿¡ Á¸ÀçÇÏ´ÂÁö ¾Ë¾Æ³»¸é µÈ´Ù. ¸ğµç Á¤¼öÀÇ ¹üÀ§´Â -231 º¸´Ù Å©°Å³ª °°°í 231º¸´Ù ÀÛ´Ù
- * @retrun M°³ÀÇ ÁÙ¿¡ ´äÀ» Ãâ·ÂÇÑ´Ù. Á¸ÀçÇÏ¸é 1À», Á¸ÀçÇÏÁö ¾ÊÀ¸¸é 0À» Ãâ·ÂÇÑ´Ù.
+ * @param ì²«ì§¸ ì¤„ì— ìì—°ìˆ˜ N(1 â‰¤ N â‰¤ 100,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‹¤ìŒ ì¤„ì—ëŠ” Nê°œì˜ ì •ìˆ˜ A[1], A[2], â€¦, A[N]ì´
+ *           ì£¼ì–´ì§„ë‹¤. ë‹¤ìŒ ì¤„ì—ëŠ” M(1 â‰¤ M â‰¤ 100,000)ì´ ì£¼ì–´ì§„ë‹¤. ë‹¤ìŒ ì¤„ì—ëŠ” Mê°œì˜ ìˆ˜ë“¤ì´ ì£¼ì–´ì§€ëŠ”ë°, ì´ ìˆ˜ë“¤ì´
+ *           Aì•ˆì— ì¡´ì¬í•˜ëŠ”ì§€ ì•Œì•„ë‚´ë©´ ëœë‹¤. ëª¨ë“  ì •ìˆ˜ì˜ ë²”ìœ„ëŠ” -231 ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ê³  231ë³´ë‹¤ ì‘ë‹¤
+ * @retrun Mê°œì˜ ì¤„ì— ë‹µì„ ì¶œë ¥í•œë‹¤. ì¡´ì¬í•˜ë©´ 1ì„, ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ 0ì„ ì¶œë ¥í•œë‹¤.
  */
 public class FindNumber {
-	public static void solution(int[] input1, int[] input2 ) throws Exception {
+	public static void solution(int[] input1, int[] input2) throws Exception {
 		HashSet<Integer> set = new HashSet<>();
-		IntStream.of(input1).boxed().forEach(n->set.add(n));
-		for(int i = 0; i < input2.length;i++) {
-			if(set.contains(input2[i])) {
+		IntStream.of(input1).boxed().forEach(n -> set.add(n));
+		for (int i = 0; i < input2.length; i++) {
+			if (set.contains(input2[i])) {
 				System.out.println(1);
-			}else {
+			} else {
 				System.out.println(0);
 			}
 		}
@@ -30,11 +30,10 @@ public class FindNumber {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int[] input1 =Stream.of( br.readLine().split(" ")).mapToInt(b->Integer.parseInt(b)).toArray();
-		int[] input2 =Stream.of( br.readLine().split(" ")).mapToInt(b->Integer.parseInt(b)).toArray();
-		
-		
-		solution(input1,input2);
+		int[] input1 = Stream.of(br.readLine().split(" ")).mapToInt(b -> Integer.parseInt(b)).toArray();
+		int[] input2 = Stream.of(br.readLine().split(" ")).mapToInt(b -> Integer.parseInt(b)).toArray();
+
+		solution(input1, input2);
 		br.close();
 
 	}

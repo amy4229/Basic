@@ -1,14 +1,14 @@
 package amy.pratice.Algorithm.BaekJoon;
 
 /**
- * ¹éÁØ#2920
- * ´ÙÀåÁ¶´Â c d e f g a b C, ÃÑ 8°³ À½À¸·Î ÀÌ·ç¾îÁ®ÀÖ´Ù. ÀÌ ¹®Á¦¿¡¼­ 8°³ À½Àº ´ÙÀ½°ú °°ÀÌ ¼ýÀÚ·Î ¹Ù²Ù¾î Ç¥ÇöÇÑ´Ù. c´Â
- * 1·Î, d´Â 2·Î, ..., C¸¦ 8·Î ¹Ù²Û´Ù.
+ * ë°±ì¤€#2920
+ * ë‹¤ìž¥ì¡°ëŠ” c d e f g a b C, ì´ 8ê°œ ìŒìœ¼ë¡œ ì´ë£¨ì–´ì ¸ìžˆë‹¤. ì´ ë¬¸ì œì—ì„œ 8ê°œ ìŒì€ ë‹¤ìŒê³¼ ê°™ì´ ìˆ«ìžë¡œ ë°”ê¾¸ì–´ í‘œí˜„í•œë‹¤. cëŠ”
+ * 1ë¡œ, dëŠ” 2ë¡œ, ..., Cë¥¼ 8ë¡œ ë°”ê¾¼ë‹¤.
  * 
- * 1ºÎÅÍ 8±îÁö Â÷·Ê´ë·Î ¿¬ÁÖÇÑ´Ù¸é ascending, 8ºÎÅÍ 1±îÁö Â÷·Ê´ë·Î ¿¬ÁÖÇÑ´Ù¸é descending, µÑ ´Ù ¾Æ´Ï¶ó¸é mixed
- * ÀÌ´Ù.
+ * 1ë¶€í„° 8ê¹Œì§€ ì°¨ë¡€ëŒ€ë¡œ ì—°ì£¼í•œë‹¤ë©´ ascending, 8ë¶€í„° 1ê¹Œì§€ ì°¨ë¡€ëŒ€ë¡œ ì—°ì£¼í•œë‹¤ë©´ descending, ë‘˜ ë‹¤ ì•„ë‹ˆë¼ë©´ mixed
+ * ì´ë‹¤.
  * 
- * ¿¬ÁÖÇÑ ¼ø¼­°¡ ÁÖ¾îÁ³À» ¶§, ÀÌ°ÍÀÌ ascendingÀÎÁö, descendingÀÎÁö, ¾Æ´Ï¸é mixedÀÎÁö ÆÇº°ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+ * ì—°ì£¼í•œ ìˆœì„œê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ì´ê²ƒì´ ascendingì¸ì§€, descendingì¸ì§€, ì•„ë‹ˆë©´ mixedì¸ì§€ íŒë³„í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•˜ì‹œì˜¤.
  * 
  * @author amy
  *
