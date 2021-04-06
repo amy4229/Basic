@@ -1,4 +1,4 @@
-package amy.pratice.Algorithm.BaekJoon.DP;
+package amy.practice.Algorithm.BaekJoon.DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;

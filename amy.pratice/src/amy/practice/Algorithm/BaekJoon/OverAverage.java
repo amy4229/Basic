@@ -1,4 +1,4 @@
-package amy.pratice.Algorithm.BaekJoon;
+package amy.practice.Algorithm.BaekJoon;
 
 import java.util.Scanner;
 import java.util.stream.DoubleStream;
