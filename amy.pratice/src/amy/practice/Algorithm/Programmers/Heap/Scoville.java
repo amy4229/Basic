@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.Programmrs.Heap;
+package amy.practice.Algorithm.Programmers.Heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
