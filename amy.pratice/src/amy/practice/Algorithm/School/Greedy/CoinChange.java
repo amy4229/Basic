@@ -31,14 +31,14 @@ public class CoinChange {
 			i++;
 		}
 		if(amt>0) {
-			System.out.printf("반환가능한 액면가 이하인 %d원은 반환되지 않습니다\r\n");
+			System.out.printf("반환가능한 액면가 이하인 %.0f원은 반환되지 않습니다\r\n", amt);
 		}
 		return coinCnts;
 	}
 
 	public static void main(String[] args) {
 		CoinChange cc = new CoinChange();
-		int T= 870;
+		int T= 872;
 		int[] C = new int[] {500, 100, 50, 10};
 		int n = C.length;
 		int[] coinCnts = cc.change(T, n, C);
