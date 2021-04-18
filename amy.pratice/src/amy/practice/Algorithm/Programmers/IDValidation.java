@@ -1,0 +1,163 @@
+package amy.practice.Algorithm.Programmers;
+
+/**
+ * 카카오에 입사한 신입 개발자 네오는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게
+ * 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와
+ * 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다. 다음은 카카오 아이디의 규칙입니다.
+ * 
+ * 아이디의 길이는 3자 이상 15자 이하여야 합니다.
+ * 
+ * 아이디는 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.) 문자만 사용할 수 있습니다.
+ * 
+ * 단, 마침표(.)는 처음과 끝에 사용할 수 없으며 또한 연속으로 사용할 수 없습니다.
+ * 
+ * 
+ * @author "Amy"
+ *
+ */
+public class IDValidation {
+
+	/**
+	 * 1단계 new_id의 모든 대문자를 대응되는 소문자로 치환합니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep1(String id) {
+		String result = id.toLowerCase();
+		System.out.println("1단계 :" + result);
+		return result;
+	}
+
+	/**
+	 * 2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep2(String id) {
+		String result = null;
+		result = id.replaceAll("[^a-z0-9._-]", "");
+		System.out.println("2단계 : " + result);
+		return result;
+	}
+
+	/**
+	 * 3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep3(String id) {
+		String result = null;
+		result = id.replaceAll("[.]{2,}", ".");
+		System.out.println("3단계 : " + result);
+		return result;
+	}
+
+	/**
+	 * 4단계 new_id에서 마침표(.)가 처음이나 끝에 위치한다면 제거합니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep4(String id) {
+		String result = null;
+		result = id.replaceAll("^[.]|[.]$", "");
+		System.out.println("4단계 : " + result);
+		return result;
+	}
+
+	/**
+	 * 5단계 new_id가 빈 문자열이라면, new_id에 "a"를 대입합니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep5(String id) {
+		String result = null;
+		result = id.isEmpty() || id.isBlank() ? "a" : id;
+		System.out.println("5단계 : " + result);
+		return result;
+	}
+
+	/**
+	 * 6단계 new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다. 만약 제거 후
+	 * 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.ㄴ *
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep6(String id) {
+		String result = id;
+		if (id.length() >= 16) {
+			result = result.substring(0, 15).replaceAll("[.]$", "");
+			System.out.println("6단계 : " + result);
+		}
+		return result;
+	}
+
+	/**
+	 * 7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
+	 * 
+	 * @param id
+	 * @return 변환된 아이디
+	 */
+	private String chkStsep7(String id) {
+		StringBuilder result = new StringBuilder(id);
+		if (id.length() <= 2) {
+			char lastletter = id.length() == 0 ? 'a' : id.charAt(id.length() - 1);
+			while (result.length() < 3) {
+				result.append(lastletter);
+			}
+		}
+		System.out.println("7단계 : " + result.toString());
+		return result.toString();
+	}
+
+	public String solution(String new_id) {
+		String answer = new_id;
+		answer = chkStsep1(answer);
+		answer = chkStsep2(answer);
+		answer = chkStsep3(answer);
+		answer = chkStsep4(answer);
+		answer = chkStsep5(answer);
+		answer = chkStsep6(answer);
+		answer = chkStsep7(answer);
+		return answer;
+	}
+
+	public static void main(String[] args) {
+		IDValidation val = new IDValidation();
+		String new_id = null;
+		String expected = null;
+
+		new_id = "...!@BaT#*..y.abcdefghijklm";
+		expected = "bat.y.abcdefghi";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "z-+.^.";
+		expected = "z--";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "=.=";
+		expected = "aaa";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "123_.def";
+		expected = "123_.def";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "abcdefghijklmn.p";
+		expected = "abcdefghijklmn";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "-_.~!@#$%^&*()=+[{]}:?,<>/._-";
+		expected = "-_._-";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+
+		new_id = "aaaaaaaaaaaaaaaa";
+		expected = "aaaaaaaaaaaaaaa";
+		System.out.printf("expected : %s   actual: %s  \r\n", expected, val.solution(new_id));
+	}
+}
