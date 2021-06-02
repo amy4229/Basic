@@ -18,7 +18,7 @@ public abstract class AbstractSort {
 		cnt =0;
 		long start = System.nanoTime();
 		int[] output = Arrays.copyOf(array, array.length);
-		sortProcess(output);
+		output =sortProcess(output);
 		long end = System.nanoTime();
 		System.out.printf("%s  정렬처리시간 : %d나노초 \t  비교횟수 : %d 회, 입력데이터 : %s, 결과: %s \r\n",sortName,  (end-start),cnt, Arrays.toString(array), Arrays.toString(output));
 		return array;
