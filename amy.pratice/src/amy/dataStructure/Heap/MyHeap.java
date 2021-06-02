@@ -3,17 +3,18 @@ package amy.dataStructure.Heap;
 import java.util.Arrays;
 
 /**
- * 최대힙구현클래스
- * 최대힙 : 완전이진트리 구조의 자료구조, 부모노드가 자식노드보다 항상 같거나크다. 
+ * 최대힙구현클래스 최대힙 : 완전이진트리 구조의 자료구조, 부모노드가 자식노드보다 항상 같거나크다.
+ * 
  * @author "Amy"
  *
  */
 public class MyHeap {
-	public int[] heap;
+	private int[] heap;
 	private int length;
 
 	/**
-	 * 생성자 
+	 * 생성자
+	 * 
 	 * @param length 배열초기화를 위한 길이
 	 */
 	public MyHeap(int length) {
@@ -23,6 +24,7 @@ public class MyHeap {
 
 	/**
 	 * 생성자
+	 * 
 	 * @param array 입력배열
 	 */
 	public MyHeap(int[] array) {
@@ -31,8 +33,13 @@ public class MyHeap {
 		swapUpLeft(array.length - 1);
 	}
 
+	public int[] getHeapArray() {
+		return heap;
+	}
+
 	/**
 	 * 힙에 자료 추가
+	 * 
 	 * @param element 추가할 숫자
 	 */
 	public void add(int element) {
@@ -46,8 +53,8 @@ public class MyHeap {
 	}
 
 	/**
-	 * 데이터 추가시 부모노드가 자식노드보다 크도록 재구성
-	 * 아래 노드부터 상위노드로 정렬진행
+	 * 데이터 추가시 부모노드가 자식노드보다 크도록 재구성 아래 노드부터 상위노드로 정렬진행
+	 * 
 	 * @param node 체크할 말단 노드
 	 */
 	private void swapUp(int node) {
@@ -65,15 +72,15 @@ public class MyHeap {
 	}
 
 	/**
-	 * 노드 삭제시, 
-	 * 윗노드부터 재구성하기위한 메서드
+	 * 노드 삭제시, 윗노드부터 재구성하기위한 메서드
+	 * 
 	 * @param node 상위 노드
-	 */
+	
 	private void swapDown(int node) {
 		int parent = node;
 		int child1 = 2 * (parent + 1) - 1;
 		int child2 = 2 * (parent + 1);
-		// 자식노드 체크 0 : 둘다 존재, 1 child1만존재
+		// 자식노드 체크
 		boolean isSingleChild = false;
 		if (child1 > length - 1) {
 			return;
@@ -82,23 +89,44 @@ public class MyHeap {
 			isSingleChild = true;
 		}
 
-		if (heap[child1] > heap[parent]) {
-			swap(child1, parent);
-			swapDown(child1);
+		if (isSingleChild) {
+			if (heap[child1] > heap[parent]) {
+				swapDown(child1);
+			}
 		} else {
-			if (isSingleChild) {
-				return;
-			} else if (heap[child2] > heap[parent]) {
-				swap(child2, parent);
+			if (heap[child2] > heap[parent]) {
 				swapDown(child2);
 			}
+			if (heap[child1] > heap[parent]) {
+				swapDown(child1);
+			}
+		}
+		return;
+	}
+ */
+	/**
+	 * 노드 삭제시, 윗노드부터 재구성하기위한 메서드
+	 * 
+	 * @param node 상위 노드
+	 */
+	private void swapDown(int node) {
+		int parent = node;
+		int child1 = 2 * (parent + 1) - 1;
+		int child2 = 2 * (parent + 1);
+		if (child1 > length - 1) {
+			return;
+		}
+		int childMax = heap[child1] >= (child2 > length - 1 ? 0 : heap[child2]) ? child1 : child2;
+		if (heap[parent] < heap[childMax]) {
+			swap(parent, childMax);
+			swapDown(childMax);
 		}
 		return;
 	}
 
 	/**
-	 * 입력배열을 힙으로 재구성하기 위한 메서드
-	 * 아래/오른쪽부터 순차적 재구성
+	 * 입력배열을 힙으로 재구성하기 위한 메서드 아래/오른쪽부터 순차적 재구성
+	 * 
 	 * @param node 마지막 노드
 	 */
 	private void swapUpLeft(int node) {
@@ -108,31 +136,22 @@ public class MyHeap {
 		while (parent >= 0) {
 			child1 = 2 * (parent + 1) - 1;
 			child2 = 2 * (parent + 1);
-			boolean isSingleChild = false;
 			if (child1 > length - 1) {
 				parent--;
 				continue;
 			}
-			if (child2 > length - 1) {
-				isSingleChild = true;
+			int childMax = heap[child1] >= (child2 > length - 1 ? 0 : heap[child2]) ? child1 : child2;
+			if (heap[parent] < heap[childMax]) {
+				swap(parent, childMax);
+				swapDown(childMax);
 			}
-			if (heap[child1] > heap[parent]) {
-				swap(child1, parent);
-			}
-
-			if (isSingleChild) {
-				parent--;
-				continue;
-			} else if (heap[child2] > heap[parent]) {
-				swap(child2, parent);
-			}
-			
 			parent--;
 		}
 	}
 
 	/**
 	 * 위치 바꿈 메서드
+	 * 
 	 * @param i 위치바꿀 인덱스1
 	 * @param j 위치바꿀 인덱스2
 	 */
@@ -143,8 +162,8 @@ public class MyHeap {
 	}
 
 	/**
-	 * 최대값인 루트노드 삭제 메서드
-	 * 루트노드 삭제 및 반환 재구성
+	 * 최대값인 루트노드 삭제 메서드 루트노드 삭제 및 반환 재구성
+	 * 
 	 * @return 삭제한 루트노드의 값
 	 */
 	public int deleteRoot() {
