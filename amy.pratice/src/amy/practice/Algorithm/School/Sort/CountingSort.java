@@ -2,6 +2,13 @@ package amy.practice.Algorithm.School.Sort;
 
 import java.util.stream.IntStream;
 
+/**
+ * 계수정렬 
+ * 주어진 정수범위 내의 정수(중복포험)가 배열에 분포되어 있을 때 
+ * 각 정수의 분포를 세서 정렬하는 방법
+ * @author "Amy"
+ *
+ */
 public class CountingSort extends AbstractSort {
 
 	@Override
