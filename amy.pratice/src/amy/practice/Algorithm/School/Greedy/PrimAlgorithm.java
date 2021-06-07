@@ -25,7 +25,7 @@ public class PrimAlgorithm {
 
 	}
 
-	public void prim(String[][] graph, int n, String start) {
+	public void prim(String[][] graph, String start) {
 		HashMap<String, PriorityQueue<Edge>> graphs = new HashMap<String, PriorityQueue<Edge>>();
 		ArrayList<String> selected = new ArrayList<String>();
 		ArrayList<String> selectedE = new ArrayList<String>();
@@ -114,7 +114,18 @@ public class PrimAlgorithm {
 				{ "b", "e", "4" }, { "c", "d", "2" }, { "c", "e", "3" }, { "d", "e", "1" }, { "d", "f", "4" },
 				{ "e", "f", "7" } };
 		PrimAlgorithm pa = new PrimAlgorithm();
-		pa.prim(graph, 6, "a");
+		pa.prim(graph,  "a");
+		System.out.println();
+		String[][]	graph2 = new String[][] { { "a", "b", "8" }, { "a", "c", "1" }, { "a", "d", "7" }, { "b", "c", "5" },
+			{ "b", "e", "3" }, { "c", "d", "6" }, { "c", "e", "4" }, { "c", "f", "3" }, { "d", "f", "2" },
+			{ "e", "f", "5" } };
+			pa.prim(graph2,  "a");
+			System.out.println();
+		String[][]	graph3 = new String[][] { { "a", "b", "5" }, { "a", "c", "3" }, { "a", "d", "7" }, 
+			{ "b", "e", "2" },  { "c", "e", "1" }, { "d", "f", "4" },
+			{ "e", "f", "6" } };
+			pa.prim(graph3,  "a");
+			System.out.println();
 
 	}
 
