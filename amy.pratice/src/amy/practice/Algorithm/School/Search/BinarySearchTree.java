@@ -78,7 +78,7 @@ public class BinarySearchTree extends AbstractSearch {
 	 * @return 삽입 성공여부
 	 */
 	public boolean insertNode(int insertVal) {
-		System.out.print("노드추가 \t");
+ 		System.out.print("노드추가 \t");
 		if(!addElement(binarySearchTree, insertVal)) {
 			System.out.print("이미 존재하는 노드입니다.");
 			return false;
@@ -178,7 +178,7 @@ public class BinarySearchTree extends AbstractSearch {
 		Node current = null;
 		if(!isExist(value)) return;
 		while(parent !=null ) {
-			if(parent.left.key == value) {
+			if(parent.left!= null && parent.left.key == value) {
 				current = parent.left;
 				//노드가 터미널일 경우
 				if(current.left == null && current.right == null ) {
@@ -189,7 +189,7 @@ public class BinarySearchTree extends AbstractSearch {
 					parent.left = current.left != null ? current.left:current.right;
 				}
 				break;
-			}else if(parent.right.key == value) {
+			}else if(parent.right!=null && parent.right.key == value) {
 				current = parent.right;
 				//노드가 터미널일 경우
 				if(current.left == null && current.right == null ) {
@@ -244,7 +244,7 @@ public class BinarySearchTree extends AbstractSearch {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] array = new int[] { 20, 30, 40, 50, 60, 10, 30, 40, 90 };
+		int[] array = new int[] { 10,20,30,40,50,60,70 };
 		String searchName ="이진탐색트리";
 		int expected1 = 1;
 		int search1 = 10 ;

@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.BaekJoon;
+package amy.Algorithm.BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

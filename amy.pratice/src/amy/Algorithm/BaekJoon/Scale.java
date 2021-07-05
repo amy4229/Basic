@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.BaekJoon;
+package amy.Algorithm.BaekJoon;
 
 /**
  * 백준#2920

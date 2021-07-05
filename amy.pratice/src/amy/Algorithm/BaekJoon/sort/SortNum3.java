@@ -1,4 +1,4 @@
-package amy.practice.Algorithm.BaekJoon.sort;
+package amy.Algorithm.BaekJoon.sort;
 
 import java.io.BufferedReader;
 import java.io.IOException;
